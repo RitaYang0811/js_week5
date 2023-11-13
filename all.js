@@ -154,58 +154,57 @@ areaSearchFilter.addEventListener("change", function (e) {
   }
 });
 
-//將數字及負號字元外的字符刪除
-function filterNum(value) {
-  return Number(value.replace(/[^\d-.]/g, ""));
-}
-
 const addTicketBtn = document.querySelector("#addTicketBtn");
 const addTicketForm = document.querySelector(".add-Ticket-form");
+const formInput = document.querySelectorAll(".add-Ticket-form .form-input");
 
+//將數字及負號字元外的字符刪除
+function filterNum(input) {
+  return Number(input.value.trim().replace(/[^\d-.]/g, ""));
+}
+
+//輸入完清除數輸入格
+function clearValue() {
+  formInput.forEach(function (item) {
+    item.value = "";
+  });
+}
+
+// 監聽按鈕點擊事件
 addTicketBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  const ticketNameValue = ticketName.value.trim();
-  const ticketUrlValue = ticketUrl.value.trim();
-  const ticketAreaValue = ticketArea.value.trim();
-  const ticketDescriptionValue = ticketDescription.value.trim();
-  const ticketNumValue = filterNum(ticketNum.value.trim());
-  const ticketPriceValue = filterNum(ticketPrice.value.trim());
-  const ticketRateValue = filterNum(ticketRate.value.trim());
+
   let newData = {};
-  newData.name = ticketNameValue;
-  newData.imgUrl = ticketUrlValue;
-  newData.area = ticketAreaValue;
-  newData.description = ticketDescriptionValue;
-  newData.group = ticketNumValue;
-  newData.price = ticketPriceValue;
-  newData.rate = ticketRateValue;
+  newData.name = ticketName.value.trim();
+  newData.imgUrl = ticketUrl.value.trim();
+  newData.area = ticketArea.value.trim();
+  newData.description = ticketDescription.value.trim();
+  newData.group = filterNum(ticketNum);
+  newData.price = filterNum(ticketPrice);
+  newData.rate = filterNum(ticketRate);
 
-  console.log(ticketUrlValue);
+  //無法中斷回圈該用for回圈
+  // formInput.forEach(function (item) {
+  //   console.log(item.value);
+  //   if (item.value === "") {
+  //     alert(`請填寫完整`);
+  //   }
+  //   return;
+  // });
 
-  if (
-    ticketNameValue === "" ||
-    ticketUrlValue === "" ||
-    ticketAreaValue === "" ||
-    ticketDescriptionValue === "" ||
-    ticketNumValue === "" ||
-    ticketPriceValue === "" ||
-    ticketRateValue === ""
-  ) {
-    alert("請填寫完整");
-    return;
-  } else if (ticketRateValue < 0 || ticketRateValue > 10) {
-    alert("請填寫1-10之間的分數");
-    return;
+  //新增未填寫及星級分數判斷
+  for (let i = 0; i < formInput.length; i++) {
+    console.log(formInput[i].value);
+    if (formInput[i].value.trim() === "") {
+      alert(`欄位請填寫完整`);
+      return;
+    } else if (filterNum(ticketRate) < 0 || filterNum(ticketRate) > 10) {
+      alert("套票星級請填寫1-10之間的分數");
+      return;
+    }
   }
 
   data.push(newData);
   renderData(data);
-
-  ticketName.value = "";
-  ticketUrl.value = "";
-  ticketArea.value = "";
-  ticketDescription.value = "";
-  ticketNum.value = "";
-  ticketPrice.value = "";
-  ticketRate.value = "";
+  clearValue();
 });

@@ -249,6 +249,12 @@ textarea {
   flex-direction: column;
 }
 
+@media (max-width: 767.98px) {
+  .flex-md-column {
+    flex-direction: column;
+  }
+}
+
 .flex-grow-1 {
   flex-grow: 1;
 }
@@ -360,6 +366,12 @@ textarea {
 @media (max-width: 767.98px) {
   .col-md-10 {
     width: 83.33%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .col-md-12 {
+    width: 100%;
   }
 }
 

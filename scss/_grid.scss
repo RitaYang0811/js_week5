@@ -43,6 +43,11 @@
 .flex-column {
   flex-direction: column;
 }
+.flex-md-column {
+  @include pad {
+    flex-direction: column;
+  }
+}
 .flex-grow-1 {
   flex-grow: 1;
 }
@@ -142,6 +147,11 @@
 .col-md-10 {
   @include pad {
     width: 83.33%;
+  }
+}
+.col-md-12 {
+  @include pad {
+    width: 100%;
   }
 }
 .col-sm-12 {

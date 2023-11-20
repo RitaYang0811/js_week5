@@ -96,7 +96,13 @@ axios
     console.log(res);
     data = res.data.data;
     renderData(data);
+    renderchart(data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
   });
+
 const tourCard = document.querySelector(".tour-card");
 const searchResult = document.querySelector(".searchResult");
 
@@ -160,6 +166,7 @@ function renderData(data) {
 
 //監聽地區選擇;
 const areaSearchFilter = document.querySelector("#areaSearch");
+
 areaSearchFilter.addEventListener("change", function (e) {
   //無結果函式
   function renderNoResult() {
@@ -229,5 +236,57 @@ addTicketBtn.addEventListener("click", function (e) {
 
   data.push(newData);
   renderData(data);
+  renderchart(data);
+  //將選單變為全部地區
+  areaSearchFilter.value = "";
   clearValue();
 });
+
+function renderchart(data) {
+  //篩選統計地區，自動生成地區及數量物件
+  let totalObj = {};
+  data.forEach(function (item) {
+    if (totalObj[item.area] === undefined) {
+      totalObj[item.area] = 1;
+    } else {
+      totalObj[item.area] += 1;
+    }
+    //console.log(totalObj);//{高雄: 1, 台北: 1, 台中: 1}
+    let newData = [];
+    let area = Object.keys(totalObj);
+    //console.log(area); //['高雄', '台北', '台中']
+    area.forEach(function (item) {
+      let ary = [];
+      ary.push(item);
+      ary.push(totalObj[item]);
+      newData.push(ary);
+    });
+    //console.log(newData);//[ ["高雄",1],["台北",1],["台中",1] ]
+
+    //統計圖表設定
+    const chart = c3.generate({
+      bindto: "#chart", // HTML 元素綁定
+      data: {
+        columns: newData, // 資料存放
+
+        type: "donut", // 圖表種類
+        colors: {
+          高雄: "#E68618",
+          台中: "#5151D3",
+          台北: "#26BFC7",
+        },
+      },
+      donut: {
+        width: 10,
+        title: "套票地區比重",
+        label: {
+          show: false, // 是否顯示標籤
+        },
+      },
+      size: {
+        width: 200,
+        height: 200,
+      },
+    });
+  });
+}

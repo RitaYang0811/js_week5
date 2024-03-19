@@ -12,8 +12,7 @@
 ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
 ## 使用技術
-- 傳接API資料渲染
-- javascript dom元素操作
-- javascript event點擊事件
-- c3.js 圖表
+- 串接API：資料渲染、新增資料
+- javascript : 操作Dom元素及觸發event事件進行 新增資料、資料渲染、篩選
+- c3.js 圖表 : 地區比重統整
 - sass

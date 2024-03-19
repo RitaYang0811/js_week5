@@ -195,10 +195,16 @@ textarea {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  padding-right: 8px;
-  padding-left: 8px;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+@media (max-width: 991.98px) {
+  .container {
+    padding-right: 8px;
+    padding-left: 8px;
+  }
 }
 
 .d-flex {
@@ -213,7 +219,7 @@ textarea {
   display: inline;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .d-md-none {
     display: none;
   }
@@ -223,7 +229,7 @@ textarea {
   justify-content: space-between;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .justify-content-md-center {
     justify-content: center;
   }
@@ -249,7 +255,7 @@ textarea {
   flex-direction: column;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .flex-md-column {
     flex-direction: column;
   }
@@ -351,25 +357,25 @@ textarea {
   padding: 2px;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .col-md-5 {
     width: 41.6%;
   }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .col-md-6 {
     width: 50%;
   }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .col-md-10 {
     width: 83.33%;
   }
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .col-md-12 {
     width: 100%;
   }
@@ -400,6 +406,10 @@ textarea {
 
 .ms-auto {
   margin-left: auto;
+}
+
+.me-auto {
+  margin-right: auto;
 }
 
 .mb-2 {
@@ -501,11 +511,11 @@ textarea {
 }
 
 .text-primary {
-  color: #00807e;
+  color: #d57a66;
 }
 
 .text-secondary {
-  color: #64c3bf;
+  color: #a3cbb2;
 }
 
 .text-grey {
@@ -525,7 +535,7 @@ textarea {
 }
 
 .bg-primary {
-  background: #00807e;
+  background: #d57a66;
 }
 
 .bg-white {
@@ -533,7 +543,7 @@ textarea {
 }
 
 .bg-secondary {
-  background: #64c3bf;
+  background: #a3cbb2;
 }
 
 .text-red {
@@ -542,14 +552,13 @@ textarea {
 
 .ticket-pannel {
   display: flex;
-  max-width: 920px;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 30px;
   margin: 120px auto 100px;
   padding: 60px 0;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .ticket-pannel {
     margin: 30px auto;
   }
@@ -559,7 +568,7 @@ textarea {
   border-radius: 12px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1607843137);
 }
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .box-shadow-12 {
     box-shadow: none;
   }
@@ -574,18 +583,18 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 38%;
+  width: 33%;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .ticket-img {
-    width: 100%;
+    width: 90%;
   }
 }
 
 .add-Ticket-form {
-  width: 38%;
+  width: 48%;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 991.98px) {
   .add-Ticket-form {
     width: 90%;
   }
@@ -598,6 +607,7 @@ textarea {
 .areaSearch {
   max-width: 920px;
   margin: 0 auto 32px;
+  padding: 20px;
 }
 
 .border-bottom-t {
@@ -605,11 +615,11 @@ textarea {
 }
 
 .border-bottom-1 {
-  border-bottom: 1px solid #00807e;
+  border-bottom: 1px solid #d57a66;
 }
 
 .border-bottom-3 {
-  border-bottom: 3px solid #00807e;
+  border-bottom: 3px solid #d57a66;
 }
 
 .border-input {
@@ -661,4 +671,8 @@ textarea {
 .alert-message span {
   margin-left: 5px;
   font-weight: bold;
-}/*# sourceMappingURL=all.css.map */
+}
+
+.c3-chart-arcs-title {
+  fill: rgb(86, 86, 86);
+}

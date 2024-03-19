@@ -1,6 +1,6 @@
 .ticket-pannel {
   display: flex;
-  max-width: 920px;
+  //max-width: 920px;
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 30px;
@@ -28,13 +28,13 @@
   flex-direction: column;
   justify-content: center;
   // max-width: 350px;
-  width: 38%;
+  width: 33%;
   @include pad {
-    width: 100%;
+    width: 90%;
   }
 }
 .add-Ticket-form {
-  width: 38%;
+  width: 48%;
   @include pad {
     width: 90%;
   }
@@ -46,6 +46,7 @@
 .areaSearch {
   max-width: 920px;
   margin: 0 auto 32px;
+  padding: 20px;
 }
 .border-bottom-t {
   border-bottom: 1px solid transparent;
@@ -104,7 +105,6 @@
   margin-left: 5px;
   font-weight: bold;
 }
-
-// .chart {
-//   height: 156px;
-// }
+.c3-chart-arcs-title {
+  fill: rgb(86, 86, 86);
+}
